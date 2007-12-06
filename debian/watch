@@ -1,0 +1,5 @@
+# $Ringlet$
+
+version = 3
+
+http://devel.ringlet.net/sysutils/timelimit/ timelimit-([\d\.]*).tar.gz
