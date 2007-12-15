@@ -12,14 +12,9 @@ else
 	CFLAGS += -O2
 endif
 
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-	touch configure-stamp
-
 build: build-stamp
 
-build-stamp: configure-stamp 
+build-stamp:
 	dh_testdir
 	$(MAKE) PREFIX=/usr ETCDIR=/etc MANDIR=/usr/share/man/man
 	touch build-stamp
@@ -27,7 +22,7 @@ build-stamp: configure-stamp
 clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp configure-stamp
+	rm -f build-stamp
 	$(MAKE) clean
 	dh_clean 
 
@@ -49,17 +44,13 @@ binary-arch: build install
 	dh_testroot
 	dh_installchangelogs ChangeLog
 	dh_installdocs
-	#dh_installexamples
-	dh_installman
-	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
-	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
+.PHONY: build clean binary-indep binary-arch binary install

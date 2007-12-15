@@ -1,5 +1,5 @@
-timelimit (1.0-1) unstable; urgency=low
+timelimit (1.1-1) unstable; urgency=low
 
   * Initial release (Closes: #453290).
 
- -- Peter Pentchev <roam@ringlet.net>  Thu,  6 Dec 2007 19:57:07 +0200
+ -- Peter Pentchev <roam@ringlet.net>  Sat, 15 Dec 2007 18:09:02 +0200
