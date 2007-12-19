@@ -30,7 +30,6 @@ install: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k 
-	dh_installdirs
 	$(MAKE) install PREFIX=/usr ETCDIR=/etc MANDIR=/usr/share/man/man BINGRP=root MANGRP=root DESTDIR=$(CURDIR)/debian/timelimit
 
 
