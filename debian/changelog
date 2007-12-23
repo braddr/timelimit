@@ -1,3 +1,9 @@
+timelimit (1.1-2) unstable; urgency=low
+
+  * Conflict with netpipes (Closes: #457444).
+
+ -- Peter Pentchev <roam@ringlet.net>  Sun, 23 Dec 2007 03:06:56 +0200
+
 timelimit (1.1-1) unstable; urgency=low
 
   * Initial release (Closes: #453290).

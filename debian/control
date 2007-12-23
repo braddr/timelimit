@@ -11,6 +11,7 @@ Homepage: http://devel.ringlet.net/sysutils/timelimit/
 Package: timelimit
 Architecture: any
 Depends: ${shlibs:Depends}
+Conflicts: netpipes
 Description: Simple utility to limit a process's absolute execution time
  The timelimit utility executes a command and terminates the spawned process
  after a given time with a given signal.  A "warning" signal is sent first,
