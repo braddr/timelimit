@@ -3,7 +3,7 @@ Section: utils
 Priority: optional
 Maintainer: Peter Pentchev <roam@ringlet.net>
 Build-Depends: debhelper (>= 5)
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 Vcs-Browser: http://svn.ringlet.net/cgi-bin/viewvc/viewvc.cgi/ringlet/sysutils/timelimit/
 Vcs-svn: http://svn.ringlet.net/svn/ringlet/sysutils/timelimit/
 Homepage: http://devel.ringlet.net/sysutils/timelimit/

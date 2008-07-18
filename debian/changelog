@@ -2,7 +2,10 @@ timelimit (1.1-3) unstable; urgency=low
 
   * Fix the watchfile
   * Remove the $Ringlet VCS tags from the watchfile and the rules file
+  * Bump standards version to 3.8.0 (no changes)
 
+  * debian/control
+    - standards version 3.8.0 (no changes)
   * debian/rules
     - remove the $Ringlet VCS tag
   * debian/watch
