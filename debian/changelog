@@ -4,6 +4,8 @@ timelimit (1.1-3) unstable; urgency=low
   * Remove the $Ringlet VCS tags from the watchfile and the rules file
   * Bump standards version to 3.8.0 (no changes)
   * Leave "noopt" and "nostrip" option processing to dpkg-buildpackage
+  * Honor the "werror" build option
+  * Enable build hardening, disabled by the "nohardening" build option
 
   * debian/control
     - standards version 3.8.0 (no changes)
@@ -11,6 +13,9 @@ timelimit (1.1-3) unstable; urgency=low
     - remove the $Ringlet VCS tag
     - let dpkg-buildpackage handle the "noopt" and "nostrip" options and
       set the default CFLAGS
+    - pass -Werror to the C compiler if the non-standard "werror" option
+      is set in DEB_BUILD_OPTIONS
+    - enable build hardening unless "nohardening" is set in DEB_BUILD_OPTIONS
   * debian/watch
     - remove a blank line so that the first non-comment line is indeed
       the "version" one as uscan requires

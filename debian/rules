@@ -2,6 +2,16 @@
 # -*- makefile -*-
 # Debhelper build instructions for timelimit.
 
+CFLAGS+=	-Wall -W
+ifneq (,$(filter werror,$(DEB_BUILD_OPTIONS)))
+	CFLAGS+=	-Werror
+endif
+ifeq (,$(filter nohardening,$(DEB_BUILD_OPTIONS)))
+export DEB_BUILD_HARDENING=1
+else
+export DEB_BUILD_HARDENING=0
+endif
+
 build: build-stamp
 
 build-stamp:
