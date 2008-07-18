@@ -1,4 +1,6 @@
-This package was downloaded from http://devel.ringlet.net/sysutils/timelimit/
+Format-Specification: http://wiki.debian.org/Proposals/CopyrightFormat?recall=184
+Upstream-Name: timelimit
+Upstream-Source: http://devel.ringlet.net/sysutils/timelimit/
 
 Files: *
 Author: Peter Pentchev <roam@ringlet.net>
@@ -33,6 +35,6 @@ License: GPL-2+
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
-
-On Debian systems, the complete text of the GNU General Public License
-can be found in file "/usr/share/common-licenses/GPL".
+  .
+  On Debian systems, the complete text of the GNU General Public License
+  can be found in file "/usr/share/common-licenses/GPL".
