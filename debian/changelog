@@ -7,7 +7,8 @@ timelimit (1.1-3) unstable; urgency=low
   * Honor the "werror" build option
   * Enable build hardening, disabled by the "nohardening" build option
   * Use debhelper 7 to minimize the rules file
-  * Convert the copyright to the machine-parseable format
+  * Convert the copyright to the machine-parseable format and bump
+    the Debian packaging copyright year
 
   * debian/compat
     - bump the debhelper compatibility level to 7
@@ -16,6 +17,7 @@ timelimit (1.1-3) unstable; urgency=low
     - bump the debhelper dependency to version 7
   * debian/copyright
     - fully convert this file to the machine-parseable format
+    - bump the debian/* copyright year
   * debian/rules
     - remove the $Ringlet VCS tag
     - let dpkg-buildpackage handle the "noopt" and "nostrip" options and
