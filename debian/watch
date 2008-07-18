@@ -1,5 +1,3 @@
-# $Ringlet: watch 1547 2007-12-23 01:18:25Z roam $
-
 version = 3
 
 http://devel.ringlet.net/sysutils/timelimit/ timelimit-([\d\.]*).tar.gz

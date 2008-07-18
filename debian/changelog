@@ -1,3 +1,17 @@
+timelimit (1.1-3) unstable; urgency=low
+
+  * Fix the watchfile
+  * Remove the $Ringlet VCS tags from the watchfile and the rules file
+
+  * debian/rules
+    - remove the $Ringlet VCS tag
+  * debian/watch
+    - remove a blank line so that the first non-comment line is indeed
+      the "version" one as uscan requires
+    - remove the $Ringlet VCS tag
+
+ -- Peter Pentchev <roam@ringlet.net>  Fri, 18 Jul 2008 10:39:56 +0300
+
 timelimit (1.1-2) unstable; urgency=low
 
   * Conflict with netpipes (Closes: #457444).

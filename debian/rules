@@ -1,8 +1,6 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
 # Debhelper build instructions for timelimit.
-#
-# $Ringlet: rules 1547 2007-12-23 01:18:25Z roam $
 
 CFLAGS = -Wall -g
 
