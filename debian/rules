@@ -12,25 +12,17 @@ else
 export DEB_BUILD_HARDENING=0
 endif
 
-build: build-stamp
-
-build-stamp:
-	dh_testdir
-	$(MAKE) PREFIX=/usr ETCDIR=/etc MANDIR=/usr/share/man/man
-	touch build-stamp
+build:
+	dh "$@"
 
 clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp
-	$(MAKE) clean
-	dh_clean 
+	dh "$@"
 
 install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k 
-	$(MAKE) install PREFIX=/usr ETCDIR=/etc MANDIR=/usr/share/man/man BINGRP=root MANGRP=root DESTDIR=$(CURDIR)/debian/timelimit
+	dh "$@" --before dh_auto_install
+	dh_auto_install -- PREFIX=/usr MANDIR=/usr/share/man/man \
+	  BINGRP=root MANGRP=root
+	dh "$@" --remaining
 
 
 # Build architecture-independent files here.
@@ -39,17 +31,7 @@ binary-indep: build install
 
 # Build architecture-dependent files here.
 binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs ChangeLog
-	dh_installdocs
-	dh_strip
-	dh_compress
-	dh_fixperms
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
+	dh "$@"
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install

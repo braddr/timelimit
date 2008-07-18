@@ -6,9 +6,13 @@ timelimit (1.1-3) unstable; urgency=low
   * Leave "noopt" and "nostrip" option processing to dpkg-buildpackage
   * Honor the "werror" build option
   * Enable build hardening, disabled by the "nohardening" build option
+  * Use debhelper 7 to minimize the rules file
 
+  * debian/compat
+    - bump the debhelper compatibility level to 7
   * debian/control
     - standards version 3.8.0 (no changes)
+    - bump the debhelper dependency to version 7
   * debian/rules
     - remove the $Ringlet VCS tag
     - let dpkg-buildpackage handle the "noopt" and "nostrip" options and
@@ -16,6 +20,7 @@ timelimit (1.1-3) unstable; urgency=low
     - pass -Werror to the C compiler if the non-standard "werror" option
       is set in DEB_BUILD_OPTIONS
     - enable build hardening unless "nohardening" is set in DEB_BUILD_OPTIONS
+    - use debhelper 7's "dh" wrapper for most tasks
   * debian/watch
     - remove a blank line so that the first non-comment line is indeed
       the "version" one as uscan requires
