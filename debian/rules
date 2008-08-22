@@ -2,7 +2,10 @@
 # -*- makefile -*-
 # Debhelper build instructions for timelimit.
 
-CFLAGS+=	-Wall -W
+CFLAGS+=	-pipe -Wall -W -ansi -pedantic -Wbad-function-cast \
+		-Wcast-align -Wcast-qual -Wchar-subscripts -Winline \
+		-Wmissing-prototypes -Wnested-externs -Wpointer-arith \
+		-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings
 ifneq (,$(filter werror,$(DEB_BUILD_OPTIONS)))
 	CFLAGS+=	-Werror
 endif

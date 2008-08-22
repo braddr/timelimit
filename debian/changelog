@@ -1,6 +1,7 @@
 timelimit (1.2-1) unstable; urgency=low
 
   * New upstream version.  Closes: #494629.
+  * Add many more warning options to CFLAGS, just in case.
 
  -- Peter Pentchev <roam@ringlet.net>  Fri, 22 Aug 2008 17:09:31 +0300
 
