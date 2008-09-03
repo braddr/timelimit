@@ -1,9 +1,11 @@
-timelimit (1.2-1) unstable; urgency=low
+timelimit (1.3-1) unstable; urgency=low
 
-  * New upstream version.  Closes: #494629.
+  * New upstream version
+    - returns the child process exit code instead of always exiting
+      with 0.  Closes: #494629.
   * Add many more warning options to CFLAGS, just in case.
 
- -- Peter Pentchev <roam@ringlet.net>  Fri, 22 Aug 2008 17:24:37 +0300
+ -- Peter Pentchev <roam@ringlet.net>  Wed, 03 Sep 2008 16:54:36 +0300
 
 timelimit (1.1-3) unstable; urgency=low
 
