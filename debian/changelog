@@ -4,8 +4,9 @@ timelimit (1.4-2) unstable; urgency=low
   * Bump Standards-Version to 3.8.1 with no changes.
   * Add misc:Depends to the binary package.
   * Minimize the rules file using debhelper override targets.
+  * Update the copyright years for the Debian packaging.
 
- -- Peter Pentchev <roam@ringlet.net>  Fri, 10 Apr 2009 16:10:45 +0300
+ -- Peter Pentchev <roam@ringlet.net>  Fri, 10 Apr 2009 17:08:00 +0300
 
 timelimit (1.4-1) unstable; urgency=low
 

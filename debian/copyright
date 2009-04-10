@@ -54,7 +54,7 @@ License: BSD-2
 
 Files: debian/*
 Author: Peter Pentchev <roam@ringlet.net>
-Copyright: Copyright (C) 2007, 2008 Peter Pentchev
+Copyright: Copyright (C) 2007-2009 Peter Pentchev
 License: GPL-2+
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
