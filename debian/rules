@@ -15,26 +15,9 @@ else
 export DEB_BUILD_HARDENING=0
 endif
 
-build:
-	dh "$@"
-
-clean:
-	dh "$@"
-
-install: build
-	dh "$@" --before dh_auto_install
+override_dh_auto_install:
 	dh_auto_install -- PREFIX=/usr MANDIR=/usr/share/man/man \
 	  BINGRP=root MANGRP=root
-	dh "$@" --remaining
 
-
-# Build architecture-independent files here.
-binary-indep: build install
-# We have nothing to do by default.
-
-# Build architecture-dependent files here.
-binary-arch: build install
+%:
 	dh "$@"
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
