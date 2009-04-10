@@ -1,3 +1,9 @@
+timelimit (1.4-2) unstable; urgency=low
+
+  * Refer to GPL-2, not just GPL, in the copyright file.
+
+ -- Peter Pentchev <roam@ringlet.net>  Fri, 10 Apr 2009 16:10:45 +0300
+
 timelimit (1.4-1) unstable; urgency=low
 
   * New upstream version
