@@ -8,7 +8,7 @@ timelimit (1.4-2) unstable; urgency=low
   * Point to the actual Debian package files in Vcs-Svn and Vcs-Browser,
     not at the full timelimit upstream repository.
 
- -- Peter Pentchev <roam@ringlet.net>  Fri, 10 Apr 2009 17:08:00 +0300
+ -- Peter Pentchev <roam@ringlet.net>  Tue, 14 Apr 2009 11:13:21 +0300
 
 timelimit (1.4-1) unstable; urgency=low
 
