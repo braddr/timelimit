@@ -4,8 +4,8 @@ Priority: optional
 Maintainer: Peter Pentchev <roam@ringlet.net>
 Build-Depends: debhelper (>= 7.0.50)
 Standards-Version: 3.8.1
-Vcs-Browser: http://svn.ringlet.net/cgi-bin/viewvc/viewvc.cgi/ringlet/sysutils/timelimit/
-Vcs-svn: http://svn.ringlet.net/svn/ringlet/sysutils/timelimit/
+Vcs-Browser: http://svn.ringlet.net/cgi-bin/viewvc/viewvc.cgi/ringlet/sysutils/timelimit/trunk/timelimit-pkg/debian/
+Vcs-svn: http://svn.ringlet.net/svn/ringlet/sysutils/timelimit/trunk/timelimit-pkg/debian/
 Homepage: http://devel.ringlet.net/sysutils/timelimit/
 
 Package: timelimit

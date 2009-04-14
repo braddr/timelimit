@@ -5,6 +5,8 @@ timelimit (1.4-2) unstable; urgency=low
   * Add misc:Depends to the binary package.
   * Minimize the rules file using debhelper override targets.
   * Update the copyright years for the Debian packaging.
+  * Point to the actual Debian package files in Vcs-Svn and Vcs-Browser,
+    not at the full timelimit upstream repository.
 
  -- Peter Pentchev <roam@ringlet.net>  Fri, 10 Apr 2009 17:08:00 +0300
 
