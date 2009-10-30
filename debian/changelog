@@ -1,6 +1,7 @@
 timelimit (1.5-1) unstable; urgency=low
 
   * New upstream release.
+  * Bump Standards-Version to 3.8.3 with no changes.
 
  -- Peter Pentchev <roam@ringlet.net>  Fri, 30 Oct 2009 14:13:21 +0200
 
