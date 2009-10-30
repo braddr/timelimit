@@ -1,6 +1,7 @@
 timelimit (1.5-1) unstable; urgency=low
 
-  * New upstream release.
+  * New upstream release
+    - add the -p flag to propagate a termination signal.  Closes: #547452
   * Bump Standards-Version to 3.8.3 with no changes.
 
  -- Peter Pentchev <roam@ringlet.net>  Fri, 30 Oct 2009 14:13:21 +0200
