@@ -10,7 +10,7 @@ timelimit (1.6-1) UNRELEASED; urgency=low
   * New upstream version:
     - actually honor CPPFLAGS :)
 
- -- Peter Pentchev <roam@ringlet.net>  Sat, 26 Jun 2010 22:17:14 +0300
+ -- Peter Pentchev <roam@ringlet.net>  Sat, 26 Jun 2010 22:35:31 +0300
 
 timelimit (1.5-1) unstable; urgency=low
 
