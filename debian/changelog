@@ -1,4 +1,4 @@
-timelimit (1.5-2) UNRELEASED; urgency=low
+timelimit (1.6-1) UNRELEASED; urgency=low
 
   * Bump Standards-Version to 3.8.4 with no changes.
   * Convert to the 3.0 (quilt) source format with no changes.
@@ -7,6 +7,8 @@ timelimit (1.5-2) UNRELEASED; urgency=low
   * Update the copyright file to the latest revision of the DEP 5 format
     and bump the year on my copyright notice.
   * Shorten the Vcs-Browser URL.
+  * New upstream version:
+    - actually honor CPPFLAGS :)
 
  -- Peter Pentchev <roam@ringlet.net>  Sat, 26 Jun 2010 22:17:14 +0300
 
