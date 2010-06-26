@@ -1,12 +1,13 @@
 timelimit (1.5-2) UNRELEASED; urgency=low
 
-  TODO: copyright rev. 135
   TODO: shorten the Vcs-Browser URL
 
   * Bump Standards-Version to 3.8.4 with no changes.
   * Convert to the 3.0 (quilt) source format with no changes.
   * Use dpkg-buildflags from dpkg-dev 1.15.7 to obtain the default values
     for CFLAGS, CPPFLAGS, and LDFLAGS.
+  * Update the copyright file to the latest revision of the DEP 5 format
+    and bump the year on my copyright notice.
 
  -- Peter Pentchev <roam@ringlet.net>  Sat, 26 Jun 2010 22:00:04 +0300
 
