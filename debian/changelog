@@ -1,10 +1,11 @@
 timelimit (1.5-2) UNRELEASED; urgency=low
 
-  TODO: policy 3.8.4
   TODO: 3.0 (quilt)
   TODO: dpkg-buildflags
   TODO: copyright rev. 135
   TODO: shorten the Vcs-Browser URL
+
+  * Bump Standards-Version to 3.8.4 with no changes.
 
  -- Peter Pentchev <roam@ringlet.net>  Sat, 26 Jun 2010 22:00:04 +0300
 
