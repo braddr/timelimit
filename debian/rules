@@ -2,6 +2,10 @@
 # -*- makefile -*-
 # Debhelper build instructions for timelimit.
 
+CFLAGS=		$(shell dpkg-buildflags --get CFLAGS)
+CPPFLAGS=	$(shell dpkg-buildflags --get CPPFLAGS)
+LDFLAGS=	$(shell dpkg-buildflags --get LDFLAGS)
+
 CFLAGS+=	-pipe -Wall -W -ansi -pedantic -Wbad-function-cast \
 		-Wcast-align -Wcast-qual -Wchar-subscripts -Winline \
 		-Wmissing-prototypes -Wnested-externs -Wpointer-arith \
@@ -14,6 +18,7 @@ export DEB_BUILD_HARDENING=1
 else
 export DEB_BUILD_HARDENING=0
 endif
+export CFLAGS CPPFLAGS LDFLAGS
 
 override_dh_auto_install:
 	dh_auto_install -- PREFIX=/usr MANDIR=/usr/share/man/man \
