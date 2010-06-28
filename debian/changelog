@@ -1,6 +1,6 @@
-timelimit (1.6-1) UNRELEASED; urgency=low
+timelimit (1.6-1) unstable; urgency=low
 
-  * Bump Standards-Version to 3.8.4 with no changes.
+  * Bump Standards-Version to 3.9.0 with no changes.
   * Convert to the 3.0 (quilt) source format with no changes.
   * Use dpkg-buildflags from dpkg-dev 1.15.7 to obtain the default values
     for CFLAGS, CPPFLAGS, and LDFLAGS.
@@ -10,7 +10,7 @@ timelimit (1.6-1) UNRELEASED; urgency=low
   * New upstream version:
     - actually honor CPPFLAGS :)
 
- -- Peter Pentchev <roam@ringlet.net>  Sat, 26 Jun 2010 22:35:31 +0300
+ -- Peter Pentchev <roam@ringlet.net>  Tue, 29 Jun 2010 00:16:18 +0300
 
 timelimit (1.5-1) unstable; urgency=low
 
