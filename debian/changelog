@@ -9,8 +9,9 @@ timelimit (1.6-1) unstable; urgency=low
   * Shorten the Vcs-Browser URL.
   * New upstream version:
     - actually honor CPPFLAGS :)
+    - explicitly pass the new changelog name, NEWS, to dh_installchangelogs
 
- -- Peter Pentchev <roam@ringlet.net>  Tue, 29 Jun 2010 00:16:18 +0300
+ -- Peter Pentchev <roam@ringlet.net>  Tue, 29 Jun 2010 00:22:32 +0300
 
 timelimit (1.5-1) unstable; urgency=low
 
