@@ -4,6 +4,7 @@ timelimit (1.7-1) UNRELEASED; urgency=low
     - use setitimer(2) for subsecond precision.  Closes: #597824
   * Bump Standards-Version to 3.9.1 with no changes.
   * Switch to Git and point the Vcs-* fields to Gitorious.
+  * Switch to bzip2 compression for the Debian tarball.
 
  -- Peter Pentchev <roam@ringlet.net>  Thu, 30 Sep 2010 10:39:35 +0300
 
