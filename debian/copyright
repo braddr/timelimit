@@ -3,8 +3,8 @@ Name: timelimit
 Maintainer: Peter Pentchev <roam@ringlet.net>
 Source: http://devel.ringlet.net/sysutils/timelimit/
 
-Files: config.h, timelimit.c
-Copyright: Copyright (c) 2001, 2007 - 2009  Peter Pentchev
+Files: config.h, timelimit.1, timelimit.c
+Copyright: Copyright (c) 2001, 2007 - 2010  Peter Pentchev
 License: BSD-2
 
 Files: Makefile
