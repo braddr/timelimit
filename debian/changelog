@@ -1,4 +1,4 @@
-timelimit (1.7-1) unstable; urgency=low
+timelimit (1.7-1) UNRELEASED; urgency=low
 
   * New upstream release:
     - use setitimer(2) for subsecond precision.  Closes: #597824
