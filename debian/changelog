@@ -5,6 +5,7 @@ timelimit (1.7-1) UNRELEASED; urgency=low
   * Bump Standards-Version to 3.9.1 with no changes.
   * Switch to Git and point the Vcs-* fields to Gitorious.
   * Switch to bzip2 compression for the Debian tarball.
+  * Bump the debhelper compatibility level to 8 with no changes.
 
  -- Peter Pentchev <roam@ringlet.net>  Thu, 30 Sep 2010 10:39:35 +0300
 
