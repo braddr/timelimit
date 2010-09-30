@@ -2,6 +2,7 @@ timelimit (1.7-1) unstable; urgency=low
 
   * New upstream release:
     - use setitimer(2) for subsecond precision.  Closes: #597824
+  * Bump Standards-Version to 3.9.1 with no changes.
 
  -- Peter Pentchev <roam@ringlet.net>  Thu, 30 Sep 2010 10:39:35 +0300
 
