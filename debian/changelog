@@ -1,4 +1,4 @@
-timelimit (1.7-1) UNRELEASED; urgency=low
+timelimit (1.7-1) experimental; urgency=low
 
   * New upstream release:
     - use setitimer(2) for subsecond precision.  Closes: #597824
@@ -8,7 +8,7 @@ timelimit (1.7-1) UNRELEASED; urgency=low
   * Switch to bzip2 compression for the Debian tarball.
   * Bump the debhelper compatibility level to 8 with no changes.
 
- -- Peter Pentchev <roam@ringlet.net>  Thu, 30 Sep 2010 10:39:35 +0300
+ -- Peter Pentchev <roam@ringlet.net>  Thu, 30 Sep 2010 13:01:11 +0300
 
 timelimit (1.6-1) unstable; urgency=low
 
