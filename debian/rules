@@ -2,9 +2,9 @@
 # -*- makefile -*-
 # Debhelper build instructions for timelimit.
 
-CFLAGS=		$(shell dpkg-buildflags --get CFLAGS)
-CPPFLAGS=	$(shell dpkg-buildflags --get CPPFLAGS)
-LDFLAGS=	$(shell dpkg-buildflags --get LDFLAGS)
+CFLAGS:=	$(shell dpkg-buildflags --get CFLAGS)
+CPPFLAGS:=	$(shell dpkg-buildflags --get CPPFLAGS)
+LDFLAGS:=	$(shell dpkg-buildflags --get LDFLAGS)
 
 CFLAGS+=	-pipe -Wall -W -ansi -pedantic -Wbad-function-cast \
 		-Wcast-align -Wcast-qual -Wchar-subscripts -Winline \
