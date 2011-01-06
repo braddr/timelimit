@@ -1,3 +1,10 @@
+timelimit (1.7-2) UNRELEASED; urgency=low
+
+  * Actually enable the build hardening by default (depend on a hardening
+    package) and switch from the hardening-wrapper to hardening-includes.
+
+ -- Peter Pentchev <roam@ringlet.net>  Thu, 06 Jan 2011 17:16:29 +0200
+
 timelimit (1.7-1) experimental; urgency=low
 
   * New upstream release:
