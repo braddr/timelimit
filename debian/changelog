@@ -1,3 +1,10 @@
+timelimit (1.7-3) UNRELEASED; urgency=low
+
+  * Make the short description start with a lowercase letter.
+  * Upload to unstable.
+
+ -- Peter Pentchev <roam@ringlet.net>  Tue, 01 Mar 2011 18:18:43 +0200
+
 timelimit (1.7-2) experimental; urgency=low
 
   * Actually enable the build hardening by default (depend on a hardening

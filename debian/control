@@ -13,7 +13,7 @@ Package: timelimit
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: netpipes
-Description: Simple utility to limit a process's absolute execution time
+Description: simple utility to limit a process's absolute execution time
  The timelimit utility executes a command and terminates the spawned process
  after a given time with a given signal.  A "warning" signal is sent first,
  then, after a timeout, a "kill" signal, similar to the way init(8) operates
