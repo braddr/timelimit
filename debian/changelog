@@ -1,11 +1,11 @@
-timelimit (1.7-2) UNRELEASED; urgency=low
+timelimit (1.7-2) experimental; urgency=low
 
   * Actually enable the build hardening by default (depend on a hardening
     package) and switch from the hardening-wrapper to hardening-includes.
   * Use := instead of = to optimize some shell invocations in the rules file.
   * Bump the year on my copyright notice.
 
- -- Peter Pentchev <roam@ringlet.net>  Thu, 06 Jan 2011 17:16:29 +0200
+ -- Peter Pentchev <roam@ringlet.net>  Thu, 06 Jan 2011 17:33:28 +0200
 
 timelimit (1.7-1) experimental; urgency=low
 
