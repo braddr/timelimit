@@ -9,6 +9,7 @@ timelimit (1.7-4) UNRELEASED; urgency=low
   * Add a override for the "conflicts with version" Lintian informational
     message that the above change provokes.
   * Bump Standards-Version to 3.9.2 with no changes.
+  * Update the copyright file to the latest DEP 5 candidate format.
 
  -- Peter Pentchev <roam@ringlet.net>  Sat, 09 Apr 2011 15:38:58 +0300
 
