@@ -1,3 +1,16 @@
+timelimit (1.7-4) UNRELEASED; urgency=low
+
+  * After a discussion with George Danchev <danchev@debian.org> and
+    Mats Erik Andersson (the maintainer of netpipes), make the binary
+    package conflict versioned - the next upload of netpipes will not
+    install a timelimit binary, so the conflict will be resolved.
+    Thanks a lot to George Danchev and Mats Erik Andersson for
+    the discussion and assistance!
+  * Add a override for the "conflicts with version" Lintian informational
+    message that the above change provokes.
+
+ -- Peter Pentchev <roam@ringlet.net>  Sat, 09 Apr 2011 15:38:58 +0300
+
 timelimit (1.7-3) unstable; urgency=low
 
   * Make the short description start with a lowercase letter.
