@@ -1,4 +1,4 @@
-timelimit (1.7-4) UNRELEASED; urgency=low
+timelimit (1.7-4) unstable; urgency=low
 
   * After a discussion with George Danchev <danchev@debian.org> and
     Mats Erik Andersson (the maintainer of netpipes), make the binary
@@ -11,7 +11,7 @@ timelimit (1.7-4) UNRELEASED; urgency=low
   * Bump Standards-Version to 3.9.2 with no changes.
   * Update the copyright file to the latest DEP 5 candidate format.
 
- -- Peter Pentchev <roam@ringlet.net>  Sat, 09 Apr 2011 15:38:58 +0300
+ -- Peter Pentchev <roam@ringlet.net>  Mon, 11 Apr 2011 12:08:18 +0300
 
 timelimit (1.7-3) unstable; urgency=low
 
