@@ -1,3 +1,11 @@
+timelimit (1.8-1) UNRELEASED; urgency=low
+
+  * New upstream release
+    - supports signal names now.  Closes: #621775
+    - needs prove(1) for the test suite, so build-depend on perl
+
+ -- Peter Pentchev <roam@ringlet.net>  Wed, 13 Apr 2011 13:56:25 +0300
+
 timelimit (1.7-4) unstable; urgency=low
 
   * After a discussion with George Danchev <danchev@debian.org> and
