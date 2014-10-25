@@ -10,6 +10,7 @@ timelimit (1.8-2) UNRELEASED; urgency=medium
     - drop the versioned dpkg-dev build dependency for dpkg-buildflags
   * Drop the source compression options; dpkg-dev's defaults are good enough.
   * Let uscan verify upstream's signature against my own key.
+  * Bump the year on my debian/* copyright notice.
 
  -- Peter Pentchev <roam@ringlet.net>  Sat, 25 Oct 2014 13:50:17 +0300
 
