@@ -10,6 +10,7 @@ Homepage: http://devel.ringlet.net/sysutils/timelimit/
 
 Package: timelimit
 Architecture: any
+Multi-Arch: foreign
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: netpipes (<< 4.2-6)
 Description: simple utility to limit a process's absolute execution time
