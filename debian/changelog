@@ -1,4 +1,4 @@
-timelimit (1.8-2) UNRELEASED; urgency=medium
+timelimit (1.8-2) unstable; urgency=medium
 
   * Bump Standards-Version to 3.9.6:
     - update the copyright file to copyright format 1.0
@@ -15,7 +15,7 @@ timelimit (1.8-2) UNRELEASED; urgency=medium
   * Add --parallel to the debhelper invocation.
   * Add Multi-Arch: foreign to the binary package.
 
- -- Peter Pentchev <roam@ringlet.net>  Sat, 25 Oct 2014 13:50:17 +0300
+ -- Peter Pentchev <roam@ringlet.net>  Sun, 26 Oct 2014 02:04:52 +0300
 
 timelimit (1.8-1) unstable; urgency=low
 
