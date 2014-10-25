@@ -4,6 +4,10 @@ timelimit (1.8-2) UNRELEASED; urgency=medium
     - update the copyright file to copyright format 1.0
     - fix the copyright file information about upstream version 1.8
     - drop the DM-Upload-Allowed source control field
+  * Bump the debhelper compatibility level to 9:
+    - get the build flags (incl. hardening) directly from debhelper
+    - drop the hardening-includes build dependency
+    - drop the versioned dpkg-dev build dependency for dpkg-buildflags
 
  -- Peter Pentchev <roam@ringlet.net>  Sat, 25 Oct 2014 13:50:17 +0300
 
