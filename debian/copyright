@@ -1,14 +1,19 @@
-Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=174
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: timelimit
 Upstream-Contact: Peter Pentchev <roam@ringlet.net>
 Source: http://devel.ringlet.net/sysutils/timelimit/
+License: BSD-2
 
-Files: config.h, timelimit.1, timelimit.c
-Copyright: Copyright (c) 2001, 2007 - 2010  Peter Pentchev
+Files: *
+Copyright: Copyright (c) 2001, 2007, 2010  Peter Pentchev
 License: BSD-2
 
 Files: Makefile
-Copyright: Copyright (c) 2001, 2007, 2010  Peter Pentchev
+Copyright: Copyright (c) 2001, 2007, 2010, 2011  Peter Pentchev
+License: BSD-2
+
+Files: t/*
+Copyright: Copyright (c) 2011  Peter Pentchev
 License: BSD-2
 
 Files: debian/*
