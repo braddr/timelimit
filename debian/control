@@ -3,7 +3,7 @@ Section: utils
 Priority: optional
 Maintainer: Peter Pentchev <roam@ringlet.net>
 Build-Depends: debhelper (>> 9), perl
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Vcs-Git: git://gitorious.org/timelimit/pkg-debian.git
 Vcs-Browser: http://gitorious.org/timelimit/pkg-debian
 Homepage: http://devel.ringlet.net/sysutils/timelimit/
