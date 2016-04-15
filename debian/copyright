@@ -2,19 +2,19 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: timelimit
 Upstream-Contact: Peter Pentchev <roam@ringlet.net>
 Source: http://devel.ringlet.net/sysutils/timelimit/
-License: BSD-2
+License: BSD-2-clause
 
 Files: *
 Copyright: Copyright (c) 2001, 2007, 2010  Peter Pentchev
-License: BSD-2
+License: BSD-2-clause
 
 Files: Makefile
 Copyright: Copyright (c) 2001, 2007, 2010, 2011  Peter Pentchev
-License: BSD-2
+License: BSD-2-clause
 
 Files: t/*
 Copyright: Copyright (c) 2011  Peter Pentchev
-License: BSD-2
+License: BSD-2-clause
 
 Files: debian/*
 Copyright: Copyright (C) 2007 - 2011, 2014, 2016 Peter Pentchev
@@ -27,7 +27,7 @@ License: GPL-2+
   On Debian systems, the complete text of the GNU General Public License
   can be found in file "/usr/share/common-licenses/GPL-2".
 
-License: BSD-2
+License: BSD-2-clause
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions
   are met:
