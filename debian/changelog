@@ -9,9 +9,11 @@ timelimit (1.8.1-1) UNRELEASED; urgency=medium
     - drop the hardening-includes build dependency
     - drop the versioned dpkg-dev build dependency for dpkg-buildflags
   * Drop the source compression options; dpkg-dev's defaults are good enough.
-  * Update the watch file to version 4, use pgpmode=auto to let uscan
-    discover the upstream signature by itself, and add the upstream PGP key
-    to verify against.
+  * Update the watch file a bit:
+    - update it to version 4
+    - use pgpmode=auto to let uscan discover the upstream signature by itself
+      and add the upstream PGP key to verify against
+    - let it check the new /files/ location and also look for *.tar.xz files
   * Update the copyright file a bit:
     - bump the year on my debian/* copyright notice
     - rename the "BSD-2" license to "BSD-2-clause"
