@@ -4,10 +4,11 @@ timelimit (1.8.1-1) UNRELEASED; urgency=medium
     - update the copyright file to copyright format 1.0
     - fix the copyright file information about upstream version 1.8
     - drop the DM-Upload-Allowed source control field
-  * Bump the debhelper compatibility level to 9:
+  * Bump the debhelper compatibility level to 10:
     - get the build flags (incl. hardening) directly from debhelper
     - drop the hardening-includes build dependency
     - drop the versioned dpkg-dev build dependency for dpkg-buildflags
+    - override the Lintian debhelper version warning as it itself suggests
   * Drop the source compression options; dpkg-dev's defaults are good enough.
   * Update the watch file a bit:
     - update it to version 4
@@ -19,7 +20,6 @@ timelimit (1.8.1-1) UNRELEASED; urgency=medium
     - rename the "BSD-2" license to "BSD-2-clause"
     - relicense my debian/* work under the same two-clause BSD license
   * Add the debian/upstream/metadata file.
-  * Add --parallel to the debhelper invocation.
   * Add Multi-Arch: foreign to the binary package.
   * Point the Vcs-* source control fields and the upstream metadata
     Repository fields to the new GitLab full-source repository and
