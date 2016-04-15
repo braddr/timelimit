@@ -1,0 +1,17 @@
+Source: timelimit
+Section: utils
+Priority: optional
+Maintainer: Peter Pentchev <roam@ringlet.net>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: timelimit
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: Simple utility to limit a process's absolute execution time
+ The timelimit utility executes a command and terminates the spawned process
+ after a given time with a given signal.  A "warning" signal is sent first,
+ then, after a timeout, a "kill" signal, similar to the way init(8) operates
+ on shutdown.
+ .
+  Homepage: http://devel.ringlet.net/sysutils/timelimit/
