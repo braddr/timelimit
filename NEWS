@@ -1,6 +1,6 @@
 Change log for timelimit, the process time limit tool
 
-1.8.1		not yet ;)
+1.8.1		2016/04/15
 	- remove the $Ringlet tags from the source files [roam]
 	- install the tests as documentation examples [roam]
 	- use the C99 bool type [roam]
