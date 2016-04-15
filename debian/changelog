@@ -14,6 +14,9 @@ timelimit (1.8-2) UNRELEASED; urgency=medium
   * Add the debian/upstream/metadata file.
   * Add --parallel to the debhelper invocation.
   * Add Multi-Arch: foreign to the binary package.
+  * Point the Vcs-* source control fields and the upstream metadata
+    Repository fields to the new GitLab full-source repository and
+    use the HTTPS scheme.
 
  -- Peter Pentchev <roam@ringlet.net>  Fri, 15 Apr 2016 16:07:11 +0300
 
