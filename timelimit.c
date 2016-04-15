@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2001, 2007, 2008  Peter Pentchev
+ * Copyright (c) 2001, 2007 - 2009  Peter Pentchev
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,7 +31,7 @@
 unsigned long	warntime, killtime;
 unsigned long	warnsig, killsig;
 volatile int	fdone, falarm, fsig, sigcaught;
-int		quiet;
+int		propagate, quiet;
 
 static const char cvs_id[] =
 "$Ringlet: timelimit.c 2843 2008-11-12 09:20:39Z roam $";
@@ -57,6 +57,9 @@ static void	usage(void);
 static void	init(int, char *[]);
 static pid_t	doit(char *[]);
 static void	child(char *[]);
+static void	raisesignal(int) __dead2;
+static void	setsig_fatal(int, void (*)(int));
+static void	setsig_fatal_gen(int, void (*)(int), int, const char *);
 static void	terminated(const char *);
 
 #ifndef HAVE_ERR
@@ -109,7 +112,7 @@ warnx(const char *fmt, ...) {
 
 static void
 usage(void) {
-	errx(EX_USAGE, "usage: timelimit [-q] [-S ksig] [-s wsig] "
+	errx(EX_USAGE, "usage: timelimit [-pq] [-S ksig] [-s wsig] "
 	    "[-T ktime] [-t wtime] command");
 }
 
@@ -152,8 +155,11 @@ init(int argc, char *argv[]) {
 		}
 
 #ifdef PARSE_CMDLINE
-	while ((ch = getopt(argc, argv, "+qS:s:T:t:")) != EOF) {
+	while ((ch = getopt(argc, argv, "+qpS:s:T:t:")) != EOF) {
 		switch (ch) {
+			case 'p':
+				propagate = 1;
+				break;
 			case 'q':
 				quiet = 1;
 				break;
@@ -210,6 +216,12 @@ sighandler(int sig) {
 
 static void
 setsig_fatal(int sig, void (*handler)(int)) {
+	
+	setsig_fatal_gen(sig, handler, 1, "setting");
+}
+
+static void
+setsig_fatal_gen(int sig, void (*handler)(int), int nocld, const char *what) {
 #ifdef HAVE_SIGACTION
 	struct sigaction act;
 
@@ -217,13 +229,14 @@ setsig_fatal(int sig, void (*handler)(int)) {
 	act.sa_handler = handler;
 	act.sa_flags = 0;
 #ifdef SA_NOCLDSTOP
-	act.sa_flags |= SA_NOCLDSTOP;
+	if (nocld)
+		act.sa_flags |= SA_NOCLDSTOP;
 #endif /* SA_NOCLDSTOP */
 	if (sigaction(sig, &act, NULL) < 0)
-		err(EX_OSERR, "setting signal handler for %d", sig);
+		err(EX_OSERR, "%s signal handler for %d", what, sig);
 #else  /* HAVE_SIGACTION */
 	if (signal(sig, handler) == SIG_ERR)
-		err(EX_OSERR, "setting signal handler for %d", sig);
+		err(EX_OSERR, "%s signal handler for %d", what, sig);
 #endif /* HAVE_SIGACTION */
 }
     
@@ -303,6 +316,16 @@ child(char *argv[]) {
 	err(EX_OSERR, "executing %s", argv[0]);
 }
 
+static __dead2 void
+raisesignal (int sig) {
+
+	setsig_fatal_gen(sig, SIG_DFL, 0, "restoring");
+	raise(sig);
+	while (1)
+		pause();
+	/* NOTREACHED */
+}
+
 int
 main(int argc, char *argv[]) {
 	pid_t pid;
@@ -318,8 +341,10 @@ main(int argc, char *argv[]) {
 		    (long)pid);
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
-	else if (WIFSIGNALED(status))
-		return (WTERMSIG(status) + 128);
-	else
+	else if (!WIFSIGNALED(status))
 		return (EX_OSERR);
+	if (propagate)
+		raisesignal(WTERMSIG(status));
+	else
+		return (WTERMSIG(status) + 128);
 }
