@@ -26,7 +26,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Ringlet: Id $ */
+ * $Ringlet: config.h 2544 2008-09-03 13:24:36Z roam $ */
 
 #define _GNU_SOURCE
 
