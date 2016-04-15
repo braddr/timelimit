@@ -22,7 +22,7 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-# $Ringlet: Makefile 5200 2010-06-26 19:23:54Z roam $
+# $Ringlet$
 
 CC?=		gcc
 CFLAGS?=		-O -pipe
