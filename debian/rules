@@ -17,7 +17,7 @@ export DEB_CFLAGS_MAINT_APPEND
 
 override_dh_auto_install:
 	dh_auto_install -- PREFIX=/usr MANDIR=/usr/share/man/man \
-	  BINGRP=root MANGRP=root
+	  BINGRP=root SHAREGRP=root
 
 override_dh_installchangelogs:
 	dh_installchangelogs NEWS
