@@ -13,6 +13,7 @@ timelimit (1.8-2) UNRELEASED; urgency=medium
   * Update the copyright file a bit:
     - bump the year on my debian/* copyright notice
     - rename the "BSD-2" license to "BSD-2-clause"
+    - relicense my debian/* work under the same two-clause BSD license
   * Add the debian/upstream/metadata file.
   * Add --parallel to the debhelper invocation.
   * Add Multi-Arch: foreign to the binary package.
