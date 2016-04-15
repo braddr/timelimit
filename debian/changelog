@@ -23,6 +23,7 @@ timelimit (1.8-2) UNRELEASED; urgency=medium
     Repository fields to the new GitLab full-source repository and
     use the HTTPS scheme.
   * Temporarily add the 01-install-tests patch to install t/*.t as examples.
+  * Add an autopkgtest suite using the installed tests.
 
  -- Peter Pentchev <roam@ringlet.net>  Fri, 15 Apr 2016 16:07:11 +0300
 

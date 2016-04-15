@@ -7,6 +7,7 @@ Standards-Version: 3.9.8
 Vcs-Git: https://gitlab.com/timelimit/timelimit.git -b debian
 Vcs-Browser: https://gitlab.com/timelimit/timelimit/tree/debian
 Homepage: http://devel.ringlet.net/sysutils/timelimit/
+Testsuite: autopkgtest
 
 Package: timelimit
 Architecture: any

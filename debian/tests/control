@@ -1,0 +1,2 @@
+Test-Command: env TIMELIMIT='/usr/bin/timelimit' prove -v /usr/share/doc/timelimit/examples/tests
+Depends: @, perl
