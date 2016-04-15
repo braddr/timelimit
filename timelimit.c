@@ -34,7 +34,7 @@ volatile int	fdone, falarm, fsig, sigcaught;
 int		quiet;
 
 static const char cvs_id[] =
-"$Ringlet: timelimit.c 2544 2008-09-03 13:24:36Z roam $";
+"$Ringlet: timelimit.c 2843 2008-11-12 09:20:39Z roam $";
 
 static struct {
 	const char	*name, opt;
