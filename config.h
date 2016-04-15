@@ -26,7 +26,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Ringlet$ */
+ * $Ringlet: config.h 1455 2007-11-28 10:44:19Z roam $ */
 
 /* we hope all OS's have those..*/
 #include <sys/types.h>
