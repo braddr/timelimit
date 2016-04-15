@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2001, 2007 - 2010  Peter Pentchev
+ * Copyright (c) 2001, 2007 - 2010, 2016  Peter Pentchev
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,18 +30,20 @@
 
 unsigned long	warntime, warnmsec, killtime, killmsec;
 unsigned long	warnsig, killsig;
-volatile int	fdone, falarm, fsig, sigcaught;
-int		propagate, quiet;
+volatile bool	fdone, falarm, fsig;
+volatile int	sigcaught;
+bool		propagate, quiet;
 
 static struct {
-	const char	*name, opt, issig;
+	const char	*name, opt;
+	bool		 issig;
 	unsigned long	*sec, *msec;
 } envopts[] = {
-	{"KILLSIG",	'S',	1,	&killsig, NULL},
-	{"KILLTIME",	'T',	0,	&killtime, &killmsec},
-	{"WARNSIG",	's',	1,	&warnsig, NULL},
-	{"WARNTIME",	't',	0,	&warntime, &warnmsec},
-	{NULL,		0,	0,	NULL, NULL}
+	{"KILLSIG",	'S',	true,	&killsig, NULL},
+	{"KILLTIME",	'T',	false,	&killtime, &killmsec},
+	{"WARNSIG",	's',	true,	&warnsig, NULL},
+	{"WARNTIME",	't',	false,	&warntime, &warnmsec},
+	{NULL,		0,	false,	NULL, NULL}
 };
 
 static struct {
@@ -123,17 +125,17 @@ static void	errx(int, const char *, ...);
 
 static void	usage(void);
 
-static void	init(int, char *[]);
-static pid_t	doit(char *[]);
-static void	child(char *[]);
+static void	init(int, char * const []);
+static pid_t	doit(char * const []);
+static void	child(char * const []);
 static void	raisesignal(int) __dead2;
 static void	setsig_fatal(int, void (*)(int));
-static void	setsig_fatal_gen(int, void (*)(int), int, const char *);
+static void	setsig_fatal_gen(int, void (*)(int), bool, const char *);
 static void	terminated(const char *);
 
 #ifndef HAVE_ERR
 static void
-err(int code, const char *fmt, ...) {
+err(const int code, const char * const fmt, ...) {
 	va_list v;
 
 	va_start(v, fmt);
@@ -145,7 +147,7 @@ err(int code, const char *fmt, ...) {
 }
 
 static void
-errx(int code, const char *fmt, ...) {
+errx(const int code, const char * const fmt, ...) {
 	va_list v;
 
 	va_start(v, fmt);
@@ -157,7 +159,7 @@ errx(int code, const char *fmt, ...) {
 }
 
 static void
-warnx(const char *fmt, ...) {
+warnx(const char * const fmt, ...) {
 	va_list v;
 
 	va_start(v, fmt);
@@ -175,26 +177,25 @@ usage(void) {
 }
 
 static void
-atou_fatal(const char *s, unsigned long *sec, unsigned long *msec, int issig) {
-	unsigned long v, vm, mul;
-	const char *p;
-	size_t i;
-
+atou_fatal(const char * const s, unsigned long * const sec,
+		unsigned long * const msec, const bool issig) {
 	if (s[0] < '0' || s[0] > '9') {
 		if (s[0] == '\0' || !issig)
 			usage();
-		for (i = 0; i < SIGNALS; i++)
-			if (!strcmp(signals[i].name, s))
-				break;
-		if (i == SIGNALS)
-			usage();
-		*sec = (unsigned long)signals[i].num;
-		if (msec != NULL)
-			*msec = 0;
-		return;
+		for (size_t i = 0; i < SIGNALS; i++)
+			if (strcmp(signals[i].name, s) == 0)
+			{
+				*sec = (unsigned long)signals[i].num;
+				if (msec != NULL)
+					*msec = 0;
+				return;
+			}
+		/* Not a number, not a signal name */
+		usage();
 	}
 
-	v = 0;
+	unsigned long v = 0;
+	const char *p;
 	for (p = s; (*p >= '0') && (*p <= '9'); p++)
 		v = v * 10 + *p - '0';
 	if (*p == '\0') {
@@ -207,8 +208,8 @@ atou_fatal(const char *s, unsigned long *sec, unsigned long *msec, int issig) {
 	}
 	p++;
 
-	vm = 0;
-	mul = 1000000;
+	unsigned long vm = 0;
+	unsigned long mul = 1000000;
 	for (; (*p >= '0') && (*p <= '9'); p++) {
 		vm = vm * 10 + *p - '0';
 		mul = mul / 10;
@@ -227,16 +228,9 @@ atou_fatal(const char *s, unsigned long *sec, unsigned long *msec, int issig) {
 }
 
 static void
-init(int argc, char *argv[]) {
-#ifdef PARSE_CMDLINE
-	int ch, listsigs;
-#endif
-	int optset;
-	unsigned i;
-	char *s;
-	
+init(const int argc, char * const argv[]) {
 	/* defaults */
-	quiet = 0;
+	quiet = false;
 	warnsig = SIGTERM;
 	killsig = SIGKILL;
 	warntime = 3600;
@@ -244,47 +238,55 @@ init(int argc, char *argv[]) {
 	killtime = 120;
 	killmsec = 0;
 
-	optset = 0;
+	bool optset = false;
 	
 	/* process environment variables first */
-	for (i = 0; envopts[i].name != NULL; i++)
-		if ((s = getenv(envopts[i].name)) != NULL) {
+	for (size_t i = 0; envopts[i].name != NULL; i++) {
+		const char * const s = getenv(envopts[i].name);
+		if (s != NULL) {
 			atou_fatal(s, envopts[i].sec, envopts[i].msec,
 			    envopts[i].issig);
-			optset = 1;
+			optset = true;
 		}
+	}
 
 #ifdef PARSE_CMDLINE
-	listsigs = 0;
+	bool listsigs = false;
+	int ch;
 	while ((ch = getopt(argc, argv, "+lqpS:s:T:t:")) != -1) {
 		switch (ch) {
 			case 'l':
-				listsigs = 1;
+				listsigs = true;
 				break;
 			case 'p':
-				propagate = 1;
+				propagate = true;
 				break;
 			case 'q':
-				quiet = 1;
+				quiet = true;
 				break;
 			default:
+				{
 				/* check if it's a recognized option */
-				for (i = 0; envopts[i].name != NULL; i++)
+				bool found = false;
+				for (size_t i = 0; envopts[i].name != NULL; i++)
 					if (ch == envopts[i].opt) {
 						atou_fatal(optarg,
 						    envopts[i].sec,
 						    envopts[i].msec,
 						    envopts[i].issig);
-						optset = 1;
+						optset = true;
+						found = true;
 						break;
 					}
-				if (envopts[i].name == NULL)
+				if (!found)
 					usage();
+				}
+				break;
 		}
 	}
 
 	if (listsigs) {
-		for (i = 0; i < SIGNALS; i++)
+		for (size_t i = 0; i < SIGNALS; i++)
 			printf("%s%c", signals[i].name,
 			    i + 1 < SIGNALS? ' ': '\n');
 		exit(EX_OK);
@@ -298,9 +300,7 @@ init(int argc, char *argv[]) {
 		    "killtime=%lu, killsig=%lu",
 		    warntime, warnsig, killtime, killsig);
 
-	argc -= optind;
-	argv += optind;
-	if (argc == 0)
+	if (argc == optind)
 		usage();
 
 	/* sanity checks */
@@ -309,32 +309,33 @@ init(int argc, char *argv[]) {
 }
 
 static void
-sigchld(int sig __unused) {
+sigchld(const int sig __unused) {
 
-	fdone = 1;
+	fdone = true;
 }
 
 static void
-sigalrm(int sig __unused) {
+sigalrm(const int sig __unused) {
 
-	falarm = 1;
+	falarm = true;
 }
 
 static void
-sighandler(int sig) {
+sighandler(const int sig) {
 
 	sigcaught = sig;
-	fsig = 1;
+	fsig = true;
 }
 
 static void
-setsig_fatal(int sig, void (*handler)(int)) {
+setsig_fatal(const int sig, void (* const handler)(int)) {
 	
-	setsig_fatal_gen(sig, handler, 1, "setting");
+	setsig_fatal_gen(sig, handler, true, "setting");
 }
 
 static void
-setsig_fatal_gen(int sig, void (*handler)(int), int nocld, const char *what) {
+setsig_fatal_gen(const int sig, void (* const handler)(int), const bool nocld,
+		const char * const what) {
 #ifdef HAVE_SIGACTION
 	struct sigaction act;
 
@@ -370,11 +371,10 @@ settimer(const char *name, unsigned long sec, unsigned long msec)
 }
     
 static pid_t
-doit(char *argv[]) {
-	pid_t pid;
-
+doit(char * const argv[]) {
 	/* install signal handlers */
-	fdone = falarm = fsig = sigcaught = 0;
+	fdone = falarm = fsig = false;
+	sigcaught = 0;
 	setsig_fatal(SIGALRM, sigalrm);
 	setsig_fatal(SIGCHLD, sigchld);
 	setsig_fatal(SIGTERM, sighandler);
@@ -383,9 +383,10 @@ doit(char *argv[]) {
 	setsig_fatal(SIGQUIT, sighandler);
 
 	/* fork off the child process */
-	if ((pid = fork()) < 0)
+	const pid_t pid = fork();
+	if (pid < 0)
 		err(EX_OSERR, "fork");
-	if (pid == 0)
+	else if (pid == 0)
 		child(argv);
 
 	/* sleep for the allowed time */
@@ -399,7 +400,7 @@ doit(char *argv[]) {
 		return (pid);
 	if (fsig)
 		terminated("run");
-	falarm = 0;
+	falarm = false;
 	if (!quiet)
 		warnx("sending warning signal %lu", warnsig);
 	kill(pid, (int) warnsig);
@@ -428,28 +429,27 @@ doit(char *argv[]) {
 	if (!quiet)
 		warnx("sending kill signal %lu", killsig);
 	kill(pid, (int) killsig);
-	setsig_fatal_gen(SIGCHLD, SIG_DFL, 0, "restoring");
+	setsig_fatal_gen(SIGCHLD, SIG_DFL, false, "restoring");
 	return (pid);
 }
 
 static void
-terminated(const char *period) {
+terminated(const char * const period) {
 
 	errx(EX_SOFTWARE, "terminated by signal %d during the %s period",
 	    sigcaught, period);
 }
 
 static void
-child(char *argv[]) {
-
+child(char * const argv[]) {
 	execvp(argv[0], argv);
 	err(EX_OSERR, "executing %s", argv[0]);
 }
 
 static __dead2 void
-raisesignal (int sig) {
+raisesignal (const int sig) {
 
-	setsig_fatal_gen(sig, SIG_DFL, 0, "restoring");
+	setsig_fatal_gen(sig, SIG_DFL, false, "restoring");
 	raise(sig);
 	while (1)
 		pause();
@@ -457,15 +457,11 @@ raisesignal (int sig) {
 }
 
 int
-main(int argc, char *argv[]) {
-	pid_t pid;
-	int status;
-
+main(const int argc, char * const argv[]) {
 	init(argc, argv);
-	argc -= optind;
-	argv += optind;
-	pid = doit(argv);
+	const pid_t pid = doit(argv + optind);
 
+	int status;
 	if (waitpid(pid, &status, 0) == -1)
 		err(EX_OSERR, "could not get the exit status for process %ld",
 		    (long)pid);

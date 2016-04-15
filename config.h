@@ -2,7 +2,7 @@
 #define _INCLUDED_TIMELIMIT_CONFIG_H
 
 /*-
- * Copyright (c) 2001, 2007 - 2010  Peter Pentchev
+ * Copyright (c) 2001, 2007 - 2010, 2016  Peter Pentchev
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,7 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
- * $Ringlet$ */
+ */
 
 #define _GNU_SOURCE
 
@@ -38,6 +37,7 @@
 
 #include <signal.h>
 #include <stdarg.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
