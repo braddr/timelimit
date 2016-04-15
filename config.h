@@ -2,7 +2,7 @@
 #define _INCLUDED_TIMELIMIT_CONFIG_H
 
 /*-
- * Copyright (c) 2001, 2007 - 2009  Peter Pentchev
+ * Copyright (c) 2001, 2007 - 2010  Peter Pentchev
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,7 @@
 /* we hope all OS's have those..*/
 #include <sys/types.h>
 #include <sys/signal.h>
+#include <sys/time.h>
 #include <sys/wait.h>
 
 #include <signal.h>
