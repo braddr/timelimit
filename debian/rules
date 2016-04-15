@@ -6,7 +6,7 @@
 DEB_BUILD_MAINT_OPTIONS=	hardening=+all
 export DEB_BUILD_MAINT_OPTIONS
 
-DEB_CFLAGS_MAINT_APPEND=	-pipe -Wall -W -ansi -pedantic -Wbad-function-cast \
+DEB_CFLAGS_MAINT_APPEND=	-pipe -Wall -W -pedantic -Wbad-function-cast \
 		-Wcast-align -Wcast-qual -Wchar-subscripts -Winline \
 		-Wmissing-prototypes -Wnested-externs -Wpointer-arith \
 		-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings

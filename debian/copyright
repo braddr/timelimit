@@ -5,15 +5,7 @@ Source: http://devel.ringlet.net/sysutils/timelimit/
 License: BSD-2-clause
 
 Files: *
-Copyright: Copyright (c) 2001, 2007, 2010  Peter Pentchev
-License: BSD-2-clause
-
-Files: Makefile
-Copyright: Copyright (c) 2001, 2007, 2010, 2011  Peter Pentchev
-License: BSD-2-clause
-
-Files: t/*
-Copyright: Copyright (c) 2011  Peter Pentchev
+Copyright: Copyright (c) 2001 - 2016  Peter Pentchev
 License: BSD-2-clause
 
 Files: debian/*
